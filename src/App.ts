@@ -12,8 +12,8 @@ export class App {
     private readonly logger: any;
     private readonly path: string;
 
-    constructor(basePath: string) {
-        this.port = 8000;
+    constructor(basePath: string, port?: number) {
+        this.port = port || 8000;
         this.app = express();
         this.logger = App.initWinston();
         this.path = basePath;
@@ -46,9 +46,14 @@ export class App {
         );
     }
 
-    staticFiles() {
-        const rendererPath = path.join(this.path, '../ui/dist/ui/');
+    staticFiles(staticPath: string) {
+        const rendererPath = path.join(this.path, staticPath);
         this.app.use('/', express.static(rendererPath));
+    }
+
+    setViewEngine(view?: string) {
+        this.app.set('view engine', view || 'pug');
+        this.app.set('views', path.join(this.path + 'src/views'));
     }
 
     init() {

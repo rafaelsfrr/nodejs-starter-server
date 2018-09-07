@@ -2,7 +2,7 @@
   "name": "typescript",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently --kill-others \"tsc --watch main.ts\" \"nodemon main.js\""
+    "start": "concurrently --kill-others \"tsc -w\" \"nodemon dist/main.js\""
   },
   "dependencies": {
     "body-parser": "^1.18.3",

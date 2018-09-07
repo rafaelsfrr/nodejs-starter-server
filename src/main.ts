@@ -1,5 +1,4 @@
 import { App } from "./App";
-
 const app = new App(__dirname.replace('dist', ''));
 
 /*
@@ -33,6 +32,12 @@ const app = new App(__dirname.replace('dist', ''));
 * */
 
 /*
+* Render views
+* Default - pug
+* app.setViewEngine(view?);
+* */
+
+/*
 * Start server
 *
 * app.init();
@@ -42,4 +47,5 @@ app.logging();
 app.routes();
 app.cookie();
 app.body();
+app.setViewEngine();
 app.init();
